@@ -3,9 +3,8 @@ package com.bartlomiejkomendera.IssueTracker.web;
 import com.bartlomiejkomendera.IssueTracker.model.Issue;
 import com.bartlomiejkomendera.IssueTracker.service.IssueService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.*;
 
 @RestController
@@ -19,8 +18,22 @@ public class MainController {
         return issueService.getAllIssues();
     }
 
-    @GetMapping("/new")
+    @PostMapping("/new")
     public void createNew(@RequestBody Issue issue){
         issueService.create(issue);
+    }
+    @GetMapping("/id")
+    public Optional<Issue> getById(@RequestParam Long id){
+        return issueService.getIssueById(id);
+    }
+
+    @PutMapping("/edit")
+    public void update(@RequestBody Issue issue){
+        issueService.update(issue);
+    }
+
+    @DeleteMapping("/delete")
+    public void delete(@RequestParam Long id){
+        issueService.delete(id);
     }
 }

@@ -1,9 +1,8 @@
 package com.bartlomiejkomendera.IssueTracker.model;
 
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.Instant;
+import java.util.Date;
 
 @Entity
 public class Issue {
@@ -15,8 +14,14 @@ public class Issue {
     private String department;
     private String status;
     private String severity;
-    @CreatedDate
-    private Date creationDate;
+
+    private Instant creationDate;
+
+    @PrePersist
+    protected void onCreate(){
+        Date curDate = new Date();
+        creationDate = curDate.toInstant();
+    }
 
     public Issue() {
     }
@@ -68,11 +73,11 @@ public class Issue {
         this.severity = severity;
     }
 
-    public Date getCreationDate() {
+    public Instant getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(Instant creationDate) {
         this.creationDate = creationDate;
     }
 }
