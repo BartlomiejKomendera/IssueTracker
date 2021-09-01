@@ -14,7 +14,7 @@ public class Issue {
     private String department;
     private String status;
     private String severity;
-
+    private String createdBy;
     private Instant creationDate;
 
     @PrePersist

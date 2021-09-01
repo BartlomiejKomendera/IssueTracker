@@ -6,7 +6,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,11 +21,6 @@ public class AuthenticationController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello World";
-    }
 
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(
@@ -48,9 +42,9 @@ public class AuthenticationController {
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
 
-    @GetMapping("/example")
-    public void exampleUser(){
-        User exampleUser = new User("user","password"/*,new ArrayList<>()*/);
-        myUserDetailsService.saveUser(exampleUser);
+    @PostMapping("/register")
+    public void register(@RequestBody User user){
+        myUserDetailsService.saveUser(user);
     }
+
 }
