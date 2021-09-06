@@ -22,6 +22,7 @@ public class MainController {
     public void createNew(@RequestBody Issue issue){
         issueService.create(issue);
     }
+
     @GetMapping("/id")
     public Optional<Issue> getById(@RequestParam Long id){
         return issueService.getIssueById(id);
