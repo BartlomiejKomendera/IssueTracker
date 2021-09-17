@@ -11,6 +11,8 @@ public class Issue {
     @Column(name = "id", nullable = false)
     private Long id;
     private String title;
+    @Column(name = "description", columnDefinition = "LONGTEXT")
+    private String description;
     private String department;
     private String status;
     private String severity;
@@ -26,8 +28,9 @@ public class Issue {
     public Issue() {
     }
 
-    public Issue(String title, String department, String status, String severity) {
+    public Issue(String title, String description, String department, String status, String severity) {
         this.title = title;
+        this.description = description;
         this.department = department;
         this.status = status;
         this.severity = severity;
@@ -47,6 +50,22 @@ public class Issue {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     public String getDepartment() {
