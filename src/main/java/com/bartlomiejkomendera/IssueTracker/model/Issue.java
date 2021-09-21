@@ -28,12 +28,13 @@ public class Issue {
     public Issue() {
     }
 
-    public Issue(String title, String description, String department, String status, String severity) {
+    public Issue(String title, String description, String department, String status, String severity, String createdBy) {
         this.title = title;
         this.description = description;
         this.department = department;
         this.status = status;
         this.severity = severity;
+        this.createdBy = createdBy;
     }
 
     public Long getId() {
