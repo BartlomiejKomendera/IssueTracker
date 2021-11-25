@@ -34,6 +34,14 @@ public class IssueService implements IssueServiceInterface{
     }
 
     @Override
+    public List<Issue> getPage(int page, int size) {
+        int offset = (page-1) * size;
+        //List<Issue> pageList = issueDao.getPageList(offset, size);
+        //return pageList;
+        return null;
+    }
+
+    @Override
     public void update(Issue issue) {
         issueDao.save(issue);
     }

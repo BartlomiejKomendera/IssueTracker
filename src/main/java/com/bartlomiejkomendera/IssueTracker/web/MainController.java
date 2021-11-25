@@ -19,6 +19,11 @@ public class MainController {
         return issueService.getAllIssues();
     }
 
+    @GetMapping("/page")
+    public List<Issue> displayPage(@RequestParam int page, @RequestParam int size){
+        return issueService.getPage(page, size);
+    }
+
     @PostMapping("/new")
     public void createNew(@RequestBody Issue issue){
         issueService.create(issue);

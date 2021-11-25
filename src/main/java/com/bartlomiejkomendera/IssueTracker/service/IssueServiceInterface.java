@@ -14,6 +14,8 @@ public interface IssueServiceInterface {
 
     List<Issue> getAllIssues();
 
+    List<Issue> getPage(int page, int size);
+
     void update(Issue issue);
 
     void delete(Long id);
