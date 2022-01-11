@@ -1,2 +1,2 @@
 # IssueTracker
- Personal project consisting of a backend written in Java / Spring that serves the purpose of reposrting and tracking business issues.
+ Personal project consisting of a backend written in Java / Spring that serves the purpose of reporting and tracking business issues.
